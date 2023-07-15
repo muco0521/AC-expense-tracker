@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-4 m-auto">
+      <div class="bg-warning rounded">
+        <h5 class="d-flex justify-content-center align-items-center text-light my-4 py-2">
+          <strong>新增記帳</strong>
+        </h5>
+      </div>
+
+      <form class="bg-light text-center border border-2 rounded p-4" action="/records" method="post">
+
+        <div class="row d-flex justify-content-center align-items-center mb-2">
+          <div class="col-3">
+            <label for="name" class="col-form-label">
+              <h6>項目：</h6>
+            </label>
+          </div>
+          <div class="col-9">
+            <input name="name" type="text" id="name" value="{{name}}" class="form-control" required>
+          </div>
+        </div>
+
+        <div class="row d-flex justify-content-center align-items-center mb-2">
+          <div class="col-3">
+            <label for="date" class="col-form-label">
+              <h6>日期：</h6>
+            </label>
+          </div>
+          <div class="col-9">
+            <input name="date" type="date" id="date" value="{{date}}" class="form-control" required>
+          </div>
+        </div>
+
+        <div class="row d-flex justify-content-center align-items-center mb-2">
+          <div class="col-3">
+            <label for="categoryId" class="col-form-label">
+              <h6>類別：</h6>
+            </label>
+          </div>
+          <div class="col-9">
+            <select name="categoryId" id="category" class="form-select" aria-label="Default select example">
+              {{#each categories}}
+              <option value="{{this._id}}">{{this.name}}
+              </option>
+              {{/each}}
+            </select>
+          </div>
+        </div>
+
+        <div class="row d-flex justify-content-center align-items-center mb-4">
+          <div class="col-3">
+            <label for="amount" class="col-form-label">
+              <h6>金額：</h6>
+            </label>
+          </div>
+          <div class="col-9">
+            <input name="amount" type="text" id="amount" value="{{amount}}" class="form-control"
+              required>
+          </div>
+        </div>
+
+        <div class="col-12 d-flex justify-content-end">
+          <button type="submit" class="btn btn-success me-3" style="width: 100px;"><strong>新增</strong></button>
+          <a href="/" class="btn btn-danger" style="width: 100px;"><strong>回首頁</strong></a>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
