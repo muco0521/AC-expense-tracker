@@ -38,7 +38,7 @@
           <div class="col-4 d-flex justify-content-end align-items-center">
             <div><a href="/records/edit/{{ this._id }}" class="btn btn-success mx-2">Edit</a></div>
             <div>
-              <form action="./records/{{ this.id }}?_method=DELETE" method="POST" style="display: inline;">
+              <form action="/records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
                 <button class="btn btn-danger me-5" type="submit">Delete</button>
               </form>
             </div>
