@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
           let totalAmount = 0
           records.map((record) => {
             totalAmount += record.amount
-            record.date = new Date(record.date).toLocaleString().slice(0, 8)
+            record.date = new Date(record.date).toISOString().slice(0, 10)
           })
           res.render('index', { categories, records, totalAmount })
         })
