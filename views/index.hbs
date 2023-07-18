@@ -4,18 +4,16 @@
       <div>
         <h4><strong>總金額 : <span class="fs-1 text-warning"> $ {{ totalAmount }}</span></strong></h4>
       </div>
-      <div class="dropdown">
-        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-          data-bs-toggle="dropdown" aria-expanded="false">
-          <strong>類別</strong>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="#">家居物業</a></li>
-          <li><a class="dropdown-item" href="#">交通出行</a></li>
-          <li><a class="dropdown-item" href="#">休閒娛樂</a></li>
-          <li><a class="dropdown-item" href="#">餐飲食品</a></li>
-          <li><a class="dropdown-item" href="#">其他</a></li>
-        </ul>
+      <div>
+        <form action="/filter">
+          <select class="form-select bg-secondary text-light" aria-label="Default select example" name="sort" onchange="this.form.submit()">
+            <option value="" selected>類別</option>
+            {{#each categories}}
+            <option value="{{this._id}}" {{isSame this.name ../category.name}}>{{this.name}}
+            </option>
+            {{/each}}
+          </select>
+        </form>
       </div>
     </div>
 
