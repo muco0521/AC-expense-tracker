@@ -6,7 +6,9 @@
           <strong>修改記帳</strong>
         </h5>
       </div>
-      <form class="bg-light text-center border border-2 rounded p-4" action="/records/{{ record._id }}?_method=PUT" method="post">
+      {{> message}}
+      <form class="bg-light text-center border border-2 rounded p-4" action="/records/{{ record._id }}?_method=PUT"
+        method="post">
 
         <div class="row d-flex justify-content-center align-items-center mb-2">
           <div class="col-3">
@@ -15,7 +17,7 @@
             </label>
           </div>
           <div class="col-9">
-            <input name="name" type="text" id="name" value="{{ record.name }}" class="form-control" required>
+            <input name="name" type="text" id="name" value="{{ record.name }}" class="form-control">
           </div>
         </div>
 
@@ -26,7 +28,8 @@
             </label>
           </div>
           <div class="col-9">
-            <input name="date" type="date" id="date" value="{{#if record.date}}{{record.date}}{{else}}{{date}}{{/if}}" class="form-control" required>
+            <input name="date" type="date" id="date" value="{{#if record.date}}{{record.date}}{{else}}{{date}}{{/if}}"
+              class="form-control">
           </div>
         </div>
 
@@ -53,7 +56,7 @@
             </label>
           </div>
           <div class="col-9">
-            <input name="amount" type="text" id="amount" value="{{ record.amount }}" class="form-control" required>
+            <input name="amount" type="text" id="amount" value="{{ record.amount }}" class="form-control">
           </div>
         </div>
 

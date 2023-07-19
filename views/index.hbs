@@ -6,7 +6,8 @@
       </div>
       <div>
         <form action="/filter">
-          <select class="form-select bg-secondary text-light" aria-label="Default select example" name="sort" onchange="this.form.submit()">
+          <select class="form-select bg-secondary text-light" aria-label="Default select example" name="sort"
+            onchange="this.form.submit()">
             <option value="" selected>類別</option>
             {{#each categories}}
             <option value="{{this._id}}" {{isSame this.name ../category.name}}>{{this.name}}
@@ -16,7 +17,7 @@
         </form>
       </div>
     </div>
-
+    {{> message}}
     <ul class="list-group">
       {{#each records}}
       <li class="list-group-item list-group-item-dark border-0 rounded my-1">

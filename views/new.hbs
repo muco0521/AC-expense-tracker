@@ -6,7 +6,7 @@
           <strong>新增記帳</strong>
         </h5>
       </div>
-
+      {{> message}}
       <form class="bg-light text-center border border-2 rounded p-4" action="/records" method="post">
 
         <div class="row d-flex justify-content-center align-items-center mb-2">
@@ -16,7 +16,7 @@
             </label>
           </div>
           <div class="col-9">
-            <input name="name" type="text" id="name" value="{{name}}" class="form-control" required>
+            <input name="name" type="text" id="name" value="{{ record.name }}" class="form-control">
           </div>
         </div>
 
@@ -27,7 +27,7 @@
             </label>
           </div>
           <div class="col-9">
-            <input name="date" type="date" id="date" value="{{date}}" class="form-control" required>
+            <input name="date" type="date" id="date" value="{{ record.date }}" class="form-control">
           </div>
         </div>
 
@@ -40,7 +40,7 @@
           <div class="col-9">
             <select name="categoryId" id="category" class="form-select" aria-label="Default select example">
               {{#each categories}}
-              <option value="{{this._id}}">{{this.name}}
+              <option value="{{this._id}}" {{isSame this.name ../category.name}}>{{this.name}}
               </option>
               {{/each}}
             </select>
@@ -54,8 +54,7 @@
             </label>
           </div>
           <div class="col-9">
-            <input name="amount" type="text" id="amount" value="{{amount}}" class="form-control"
-              required>
+            <input name="amount" type="text" id="amount" value="{{ record.amount }}" class="form-control">
           </div>
         </div>
 

@@ -2,6 +2,7 @@ const router = require('express').Router()
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
 const User = require('../../models/user')
+const { userValidator } = require('../../middleware/validator')
 
 
 router.get('/login', (req, res) => {
@@ -10,25 +11,17 @@ router.get('/login', (req, res) => {
 
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/',
-  failureRedirect: 'login'
+  failureRedirect: 'login',
+  failureFlash: true
 }))
 
 router.get('/register', (req, res) => {
   res.render('register')
 })
 
-router.post('/register', (req, res) => {
+router.post('/register', userValidator, (req, res) => {
   const { name, email, password, confirmPassword } = req.body
   const errors = []
-  if (!name || !email || !password || !confirmPassword) {
-    errors.push({ message: 'All fields are required.' })
-  }
-  if (password !== confirmPassword) {
-    errors.push({ message: 'Password and confirmPassword must be the same.' })
-  }
-  if (errors.length) {
-    return res.render('register', { errors, ...req.body})
-  }
 
   User.findOne({ email })
     .then(user => {
@@ -47,7 +40,10 @@ router.post('/register', (req, res) => {
             password: hash
           })
         )
-        .then(() => res.redirect('/'))
+        .then(() => {
+          req.flash('success_msg', 'Registration success!')
+          res.redirect('/users/login')
+        })
         .catch((e) => console.log(e))
     })
   .catch((e) => console.log(e))
