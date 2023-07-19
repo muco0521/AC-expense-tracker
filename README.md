@@ -1,5 +1,5 @@
 # Expense Tracker ( AC 3 A3 )
-![image](https://raw.githubusercontent.com/muco0521/AC-expense-tracker/main/public/image/expense_tracker_image.png)
+![image](https://github.com/muco0521/AC-expense-tracker/blob/main/public/image/expense_traker_image.png)
 
 ## About - 介紹
 使用 Node.js + Express + MongoDB 記帳網站。 使用者可以註冊帳號、登入，並查看、新增、編輯或刪除專屬該用戶的記帳。
