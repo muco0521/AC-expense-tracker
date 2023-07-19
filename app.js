@@ -11,7 +11,7 @@ const usePassport = require('./config/passport')
 const routes = require('./routes')
 const helpers = require('./config/handlebars-helper')
 const app = express()
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 3000
 
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs', helpers }))
 app.set('view engine', 'hbs')
